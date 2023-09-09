@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Login</string>
+    <string name="hello">Hello, Android Community</string>
+    <string name="enter_name">Ingresa tu Nombre</string>
+    <string name="password">Ingresa tu Contraseña</string>
+    <string name="sign_in">Iniciar sesión</string>
+    <string name="sign_up">Inscribirse</string>
+    <string name="toggle">Alternar icono de visibilidad</string>
+    <string name="logo">Android Logo</string>
+    <string name="error">Lo sentimos, el nombre de usuario no puede contener caracteres especiales.</string>
+    <string name="register">¿Usuario primerizo? Inscribirse</string>
+    <string name="create_password">Crea tu Contraseña</string>
+</resources>

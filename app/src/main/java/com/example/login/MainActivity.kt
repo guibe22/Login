@@ -13,7 +13,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.login.login.LoginContentScreen
 import com.example.login.ui.theme.LoginTheme
+import com.example.login.util.InicioScreen
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.compose.runtime.*
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -26,10 +32,46 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    LoginContentScreen(loginViewModel = hiltViewModel(), onRegisterNavigateTo = {})
+                     val navController = rememberNavController()
+                    NavHost(navController, startDestination = "loginScreen") {
+                        composable("loginScreen") {
+                            LoginContentScreen(
+                                loginViewModel = hiltViewModel(),
+                                onRegisterNavigateTo = {
+
+                                    navController.navigate("inicioScreen")
+                                }
+                            )
+                        }
+
+                        composable("inicioScreen") {
+                            InicioScreen()
+                        }
+                    }
+
+
                 }
             }
         }
     }
+}
+@Composable
+fun Navegar(){
+    val navController = rememberNavController()
+
+    NavHost(navController, startDestination = "loginScreen") {
+        composable("loginScreen") {
+            LoginContentScreen(
+                loginViewModel = hiltViewModel(),
+                onRegisterNavigateTo = {
+                    navController.navigate("inicioScreen")
+                }
+            )
+        }
+
+        composable("inicioScreen") {
+            InicioScreen()
+        }
+}
 }
 
